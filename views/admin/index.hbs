@@ -1,15 +1,51 @@
+<style>
+  body {
+    background: rgb(215, 210, 236);
+  }
 
-  
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  .navbar-light .navbar-brand {
+    color: rgba(95, 179, 74, 0.9);
+    font-size: 25px;
+    font-weight: 700
+  }
+
+  .navbar-light .navbar-brand:hover {
+    color: rgba(43, 45, 156, 0.9);
+  }
+
+  .navbar-light .navbar-nav .nav-link {
+    color: rgb(125, 104, 218);
+    font-size: 18px;
+    font-weight: 600
+  }
+
+  .navbar-light .navbar-nav .nav-link:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(90 59 229);
+  }
+
+  #table-sellers tr,
+  td {
+    color: rgb(0, 0, 0);
+    background-color: rgb(125, 104, 218);
+  }
+
+  #table-sellers th {
+    color: rgb(240, 241, 255);
+  }
+</style>
+<nav class="navbar navbar-expand-lg navbar-light bg-light ps-3"
+  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Admin</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <a class="nav-link " aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/sellers">Sellers</a>
@@ -17,55 +53,40 @@
         <li class="nav-item">
           <a class="nav-link" href="/Blocke_sellers">Blocked Sellers</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/Blocke_sellers">Blocked Seller</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <div class="d-flex">
+        <a href="/"><button class="btn btn-outline-danger">Logout</button></a>
+      </div>
     </div>
   </div>
 </nav>
-<div class="container" style="margin-top: 50px;">
- 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-       {{!-- <th scope="col">Pid</th> --}}
-      <th scope="col">Discription</th>
-      <th scope="col">Price</th>
-      <th scope="col">image</th>
-      <th scope="col">sellerID</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each result}}
-    <tr>
-      <th scope="row">{{this.Product_name}}</th>
-      {{!-- <td>{{this.Product_id}}</td> --}}
-      <td>{{this.Description}}</td>
-      <td>{{this.Price}}</td>
-      <td> <img style="height: 50px; width:50px" src="/images/product/{{this.Image}}" alt=""> </td>
-    <td><a href="#">{{this.sellerID}}</a></td>
-    </tr>
-   {{/each}}
-   
-  </tbody>
-</table>
- <div class="row">
+<div class="container p-3"
+  style="margin-top: 50px;background: rgb(125, 104, 218);border-radius: 10px;box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;">
+  <table class="table" id="table-sellers">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        {{!-- <th scope="col">Pid</th> --}}
+        <th scope="col">Discription</th>
+        <th scope="col">Price</th>
+        <th scope="col">image</th>
+        <th scope="col">sellerID</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each result}}
+      <tr>
+        <th scope="row">{{this.Product_name}}</th>
+        {{!-- <td>{{this.Product_id}}</td> --}}
+        <td>{{this.Description}}</td>
+        <td>{{this.Price}}</td>
+        <td> <img style="height: 50px; width:50px" src="/images/product/{{this.Image}}" alt=""> </td>
+        <td><a href="#">{{this.sellerID}}</a></td>
+      </tr>
+      {{/each}}
+
+    </tbody>
+  </table>
+  <div class="row">
   </div>
 </div>

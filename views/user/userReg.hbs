@@ -1,34 +1,40 @@
-<div class="container" style="margin-top: 10px;">
- 
+<div class="container" style="transform:translateY(50px)">
+
   <h3 style="color: red;">{{msg}}</h3>
+  <div
+    style="background-color: white;padding:50px;box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;">
 
     <div class="row">
-        <h2>Register</h2>
+      <h2>Register</h2>
     </div>
     <form action="/users/Ureg" method="post">
-    <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">User name</label>
-    <input type="text" name="user_name" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Mobile number</label>
-    <input type="text" name="mobile" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" name="pass" class="form-control" id="exampleInputPassword1">
-  </div>
-  {{!-- <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Conform Password</label>
-    <input type="password" name="cpassword" class="form-control" id="exampleInputPassword1">
-  </div>
-  --}}
-  <button type="submit" class="btn btn-primary">Submit</button> 
-  <a href="/users/userLogin">Login here</a>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">User name</label>
+        <input type="text" name="user_name" class="form-control" id="exampleInputPassword1" required>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          required>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Mobile number</label>
+        <input type="number" min="1000000000" max="9999999999" name="mobile" class="form-control"
+          id="exampleInputPassword1" oninvalid="this.setCustomValidity('Phone Number must be 10 numbers')"
+          oninput="this.setCustomValidity('')" required>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" name="pass" class="form-control" id="exampleInputPassword1" required>
+      </div>
+      {{!-- <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Conform Password</label>
+        <input type="password" name="cpassword" class="form-control" id="exampleInputPassword1">
+      </div>
+      --}}
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <a href="/users/userLogin">Login here</a>
 
-</form>
+    </form>
+  </div>
 </div>
