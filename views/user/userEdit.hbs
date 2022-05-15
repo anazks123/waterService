@@ -1,0 +1,19 @@
+<div class="container">
+    <form action="/users/updateInfo" method="post">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email id</label>
+    <input type="email" name="email" value="{{userData.email}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Mobile</label>
+    <input type="text" name="mobile" value="{{userData.mobile}}" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">UserName</label>
+    <input type="text" name="user_name" value="{{userData.user_name}}" class="form-control" id="exampleInputPassword1">
+  </div>
+      <input type="hidden" name="id" value="{{userData.id}}" class="form-control" id="exampleInputPassword1">
+
+  <button type="submit" class="btn btn-primary">Update</button>
+</form>
+</div>

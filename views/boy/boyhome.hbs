@@ -1,0 +1,65 @@
+<style>
+    .nav{
+        width: 100%;
+        height: 70px;
+        background-color: black;
+        display: flex;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    }
+    .name{
+        color: white;
+        text-align: left;
+        margin-top:10px;
+    }
+    #btn{
+        height: 40px;
+        margin-top:10px;
+        margin-left:10px;
+    }
+    .avail{
+        width: 100%;
+        height: 50px;
+        background-color: blue;
+    }
+</style>
+
+<div class="nav">
+    <h2 class="name">
+        Welcome {{user.userName}}
+    </h2>    
+     <a id="btn" href="/boy/bussy/{{user.id}}"class="btn btn-outline-success">Bussy</a>
+
+     <a id="btn" href="/boy/avail/{{user.id}}"class="btn btn-outline-success">Availablity</a>
+    <a id="btn" href="/boy/logout/"class="btn btn-outline-danger">Logout</a>
+</div>
+    <div class="avail"> 
+        <h3 style="text-align: center;">{{user.status}}</h3>
+    </div>
+<body>
+   <table> 
+    <thead>
+<tr>
+<th class="text-left">email</th>
+<th class="text-left">Product_id</th>
+<th class="text-left">status</th>
+<th class="text-left">sellerid</th>
+<th class="text-left">Order Status</th>
+<th class="text-left">Upadte Status</th>
+<th class="text-left">close</th>
+</tr>
+</thead>
+<tbody class="table-hover">
+    {{#each data}}
+<tr>
+<td class="text-left">{{this.email}}</td>
+<td class="text-left">{{this.Product_id}}</td>
+<td class="text-left">{{this.status}}</td>
+<td class="text-left">{{this.sellerid}}</td>
+<td class="text-left">{{this.orderStatus}}</td>
+<td> <a class="btn btn-outline-danger" href="/boy/pickUP/{{this.id}}">Pickup</a></td>
+<td> <a class="btn btn-outline-danger" href="/boy/closed/{{this.id}}">Close</a></td>
+</tr>
+{{/each}}
+</tbody>
+</table>
+</body>

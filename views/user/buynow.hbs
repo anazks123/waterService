@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="card mb-3" style="max-width:80%;  margin-top: 50px; ">
+  <div class="row g-0  ">
+      {{#each product}}
+    <div class="col-md-4 cart"  style="margin-top: 10px;">
+      <img src="/images/product/{{this.Image}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8 cart"  style="margin-top: 10px;">
+      <div class="card-body">
+        <h5 class="card-title">{{this.Product_name}}</h5>
+        <p class="card-text">{{this.Description}}</p>
+        <p class="card-text"><small class="text-muted">Quantity:{{this.qnty}}</small></p>
+        <a class="btn btn-warning" href="/users/buynow/payment{{this.Id}}" role="button">Buy Now</a>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  <h1>Total:{{total_amount}}</h1>
+</div>
+</div>

@@ -1,0 +1,78 @@
+<style>
+  .boys{
+    width: 40%;
+    height: 1020px;
+    left: 0;
+    
+    position: fixed;
+    margin-left: 570px;
+  }
+</style>
+{{> sellerNav}}
+
+
+<div class="container" style="position: fixed;">
+    <div class="card mb-3" style="max-width:50%;">
+  <div class="row g-0  ">
+      {{#each product}}
+    <div class="col-md-4 cart"  style="margin-top: 10px;">
+      <img src="/images/product/{{this.Image}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8 cart"  style="margin-top: 10px;">
+      <div class="card-body">
+        <h5 class="card-title">{{this.Product_name}}</h5>
+        <p class="card-text">{{this.Description}}</p>
+        <h6>Price:{{this.Price}}</h6>
+        <h6><b>Status</b>:{{this.status}}</h6>
+        <h6><b>user email</b>:{{this.email}}</h6>
+        <h6><b>amount</b>:{{this.amount}}.Rs. <b>Payed</b></h6>
+        <form action="/seller/addboy" method="post">
+          <input type="hidden" name="id" value="{{this.id}}">
+          <input type="text" name="boyid" placeholder="input boy id">
+          <input type="submit">
+        </form>
+        <a href="/seller/placeOrder/{{this.id}}/{{this.email}}" class="btn btn-secondary">Plce order</a>
+        <a href="/seller/shipped/{{this.id}}/{{this.email}}" class="btn btn-warning">Shipped</a>
+        <a href="/seller/deliver/{{this.id}}/{{this.email}}" class="btn btn-success">Deliver today</a>
+        {{!-- <h6 class="card-title">Quantity:{{this.qnty}}</h6> --}}
+{{!--         
+        <a class="btn btn-primary" href="/users/qnty_decrement/{{this.Id}}" role="button">-</a>
+        <a class="btn btn-primary" href="/users/qnty_increment/{{this.Id}}" role="button">+</a>
+        <a class="btn btn-warning" href="/users/buynow/{{this.id}}/{{this.Price}}/{{this.qnty}}" role="button">Buy Now</a>
+        <a class="btn btn-danger" href="/users/remove/{{this.Id}}" role="button">Remove</a> --}}
+
+      </div>
+    </div>
+   
+    {{/each}}
+  </div>
+</div>
+</div>
+
+<div class="boys">
+  <table> 
+    <thead>
+<tr>
+<th class="text-left">email</th>
+<th class="text-left">mobile</th>
+<th class="text-left">userName</th>
+<th class="text-left">place</th>
+<th class="text-left">status</th>
+<th class="text-left">ID</th>
+</tr>
+</thead>
+<tbody class="table-hover">
+    {{#each data}}
+<tr>
+<td class="text-left">{{this.email}}</td>
+<td class="text-left">{{this.mobile}}</td>
+<td class="text-left">{{this.userName	}}</td>
+<td class="text-left">{{this.place}}</td>
+<td class="text-left">{{this.status}}</td>
+<td class="text-left">{{this.id}}</td>
+</tr>
+{{/each}}
+</tbody>
+</table>
+</div>
+

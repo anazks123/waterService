@@ -1,0 +1,23 @@
+<body style="background-color: background: rgb(40,39,50);
+background: linear-gradient(90deg, rgba(40,39,50,0.9528186274509804) 14%, rgba(3,80,16,0.6026785714285714) 84%);;">
+  <div style="height: 70px;width:100%;background-color:black;background: rgb(34,189,208);
+background: linear-gradient(90deg, rgba(34,189,208,0.9528186274509804) 14%, rgba(3,80,16,0.6026785714285714) 84%);">
+  <h1 style="text-align: center;color:white">WELCOME SELLER</h1>
+</div>
+<div class="container" style="width: 500px;margin-top:50px;border:2px solid black;box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;">
+    <h1 style="text-align: center;">Login</h1>
+    <form action="/seller/userLogin" method="post">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label" style="color: white;">Email address</label>
+    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label" style="color: white;">Password</label>
+    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button> <a href="/seller/register" class="btn btn-danger"> Register</a>
+  <br><br>
+</form>
+</div>
+</body>

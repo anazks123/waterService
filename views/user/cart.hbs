@@ -1,0 +1,90 @@
+
+{{> userHeader}}
+{{!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/users/" style="color: white;"  style="margin-left: 100px;" >SeedCart <sub style="color: gold;">ExplorePlus</sub> </a>
+    <img style="width: 30px;height:20px" src="https://e7.pngegg.com/pngimages/837/103/png-clipart-social-media-computer-icons-flipkart-symbol-social-media-logo-social-media.png" alt="">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+      <div  class="row g-3 align-items-center">
+  <div class="col-auto">
+     </div>
+
+      <div class="col-auto" >
+    <input  type="text" style="width: 500px;" id="inputPassword6" placeholder="Search for products,brands and more"  class="form-control" aria-describedby="passwordHelpInline">
+    </div>
+  
+  <div class="col-auto">
+    <span id="passwordHelpInline" class="form-text">
+     
+    </span>
+   
+      {{!-- <div class="btn-group"></div>
+    <button   style="margin-left: 30px;" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      {{user.user_name}}
+        </button>  --}}
+{{!--       
+    <div class="dropdown">
+      {{#if user}}
+  <button class="dropbtn">{{user.user_name}}</button>
+  <div class="dropdown-content">
+  <a href="/users/update/{{user.email}}">Account settings</a>
+  <a href="/users/logout">Logout</a>
+
+    {{else}}
+        <button   style="margin-left: 30px;" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          more
+        </button>
+          <a href="/users/userLogin" style="margin-left: 30px; width: 150px;" class="btn btn-light" >Login</a>
+  {{/if}}
+        
+  </div>
+  </div>
+</div>
+    
+    </div>
+    <div style="margin-left: 60px;">
+       
+    </div>
+  </div>
+  
+
+</nav>  --}}
+
+
+
+
+
+<div class="container">
+    <div class="card mb-3" style="max-width:50%;">
+  <div class="row g-0  ">
+      {{#each product}}
+    <div class="col-md-4 cart"  style="margin-top: 0px;">
+      <img src="/images/product/{{this.Image}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8 cart"  style="margin-top:0px;">
+      <div class="card-body">
+        <h5 class="card-title">{{this.Product_name}}</h5>
+        <p class="card-text">{{this.Description}}</p>
+        <h6>Price:{{this.Price}}</h6>
+        <h6 class="card-title">Quantity:{{this.qnty}} litter</h6>
+        
+        <a class="btn btn-primary" href="/users/qnty_decrement/{{this.Id}}" role="button">-</a>
+        <a class="btn btn-primary" href="/users/qnty_increment/{{this.Id}}" role="button">+</a>
+        <a class="btn btn-warning" href="/users/buynow/{{this.id}}/{{this.Price}}/{{this.qnty}}/{{this.sellerID}}" role="button">Buy Now</a>
+        <a class="btn btn-danger" href="/users/remove/{{this.Id}}" role="button">Remove</a>
+
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
+</div>
+
+
+

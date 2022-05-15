@@ -1,0 +1,162 @@
+<style>
+    html {
+  font-size: 10px;
+  background-image: url("https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=luke-chesser-CxBx_J3yp9g-unsplash.jpg");
+}
+
+.paymentDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10rem;
+}
+
+.paymentCard {
+  background-color: #f7faf8;
+  height: 40rem;
+  width: 40rem;
+  border-radius: 2%;
+  padding: 0 1.5rem 0 1.5rem;
+}
+
+.heading {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.headingText {
+  text-align: left;
+  color: #cc315c;
+  font-family: "Roboto", sans-serif;
+  display: inline;
+}
+
+.headingImage {
+  height: 3rem;
+  width: 10rem;
+  float: right;
+}
+
+label {
+  color: #b3b3b3;
+  display: block;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+  border: 1px solid #b3b3b3;
+  border-radius: 2%;
+  background-color: #f7faf8;
+  -moz-appearance: textfield;
+}
+
+.name,
+.number {
+  margin-top: 2rem;
+}
+
+.securityInfo {
+  /* background-color: red; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+  margin-top: 2rem;
+}
+
+.date input[type="number"] {
+  width: 40%;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+  border: 1px solid #b3b3b3;
+  border-radius: 2%;
+  background-color: #f7faf8;
+}
+
+.cvc input[type="number"] {
+  width: 40%;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+  border: 1px solid #b3b3b3;
+  border-radius: 2%;
+  background-color: #f7faf8;
+}
+
+.payButton {
+  color: white;
+  background-color: #cc315c;
+  width: 100%;
+  border: none;
+  text-align: center;
+  margin-top: 3rem;
+  padding: 1.5rem 0 1.5rem 0;
+}
+
+</style>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Credit Card Checkout Page</title>
+  </head>
+  <body>
+    <div class="paymentDiv">
+      <div class="paymentCard">
+        <div class="heading">
+          <h1 class="headingText">Credit Card Checkout</h1>
+          <img class="headingImage" src="https://mybalitrips.com/static/images/visa-mastercard.png" />
+        </div>
+
+        <hr/>
+        <form action="/users/payment" method="post">
+        <div class="name">
+          <label for="name">CARDHOLDER'S NAME</label>
+          <input type="text" id="name"  />
+        </div>
+        <div class="number">
+          <label for="number">CARD NUMBER</label>
+          <input type="number" id="number"  />
+        </div>
+        <div class="number">
+          <label for="number">TOTAL AMOUNT</label>
+            <input type="hidden" readonly value="{{email}}" id="number" name="email" />
+              <input type="hidden" readonly value="{{pid}}" id="number" name="Product_id" />
+            <input type="hidden" readonly value="{{sellerid}}" id="number" name="sellerid" />
+
+          <input type="number" readonly value="{{total}}" id="number" name="amount" />
+        </div>
+        <div class="securityInfo">
+          <div class="date">
+            <label for="date">EXPIRY DATE</label>
+            <input type="number" id="date" min="01" max="31" />
+            <input type="number" id="date" min="00" max="99" />
+          </div>
+          <div class="cvc">
+            <label for="cvc">CVC</label>
+            <input type="number" id="cvc" min="01" max="99" />
+          </div>
+        </div>
+        <div>
+          <button class="payButton">Pay Now</button>
+        </div>
+      </div>
+      </form>
+    </div>
+  </body>
+</html>

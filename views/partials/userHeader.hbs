@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/users/" style="color: white;"  style="margin-left: 100px;" >WaterSupplay <sub style="color: gold;">ExplorePlus</sub> </a>
+    <img style="width: 100px;height:20px">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+      <div  class="row g-3 align-items-center">
+  <div class="col-auto">
+     </div>
+
+      <div class="col-auto"  >
+    <input  type="text" style="width: 500px;" id="inputPassword6" placeholder=""  class="form-control" aria-describedby="passwordHelpInline">
+    </div>
+  
+  <div class="col-auto">
+    <span id="passwordHelpInline" class="form-text">
+     
+    </span>
+   
+      {{!-- <div class="btn-group"></div>
+    <button   style="margin-left: 30px;" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      {{user.user_name}}
+        </button>  --}}
+      
+    <div class="dropdown">
+      {{#if user}}
+  <button class="dropbtn">{{user.user_name}}</button>
+  <div class="dropdown-content">
+  <a href="/users/update/{{user.email}}">Account settings</a>
+  <a href="/users/logout">Logout</a>
+
+    {{else}}
+        <button   style="margin-left: 30px;" type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          more
+        </button>
+            <a href="/users/userLogin" style="width: 150px;" class="btn btn-success" >Login</a>
+  {{/if}}
+        
+  </div>
+  </div>
+</div>
+    
+    </div>
+    <div style="margin-left: 20px;">
+       {{#if user}}
+    
+          {{!-- <a class="nav-link" href="#" style="color: white;">Cart<i class="fa fa-shopping-cart" style="font-size:30px;color:rgb(255, 254, 254)"></i></a> --}}
+          <button type="button" class="btn btn-success position-relative">
+            <a class="nav-link" href="/users/cart/{{user.email}}" style="color: white;">Cart<i class="fa fa-shopping-cart" style="font-size:30px;color:rgb(255, 254, 254)"></i></a>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              {{CartTotal}}
+              </span>
+              </span>
+              </button>
+              <a href="/users/myorders" class="btn btn-success" style="color: aliceblue;">My Orders</a>
+
+        {{/if}}
+    </div>
+  </div>
+  
+
+</nav>

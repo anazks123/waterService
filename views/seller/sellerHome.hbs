@@ -1,0 +1,95 @@
+
+<div class="container2" style="width: 600px;border:2px solid green;margin-top:20px;margin-left:100px">
+    <div class="container" style="margin-top: 50px;">
+ 
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+       {{!-- <th scope="col">Pid</th> --}}
+      <th scope="col">Discription</th>
+      <th scope="col">Price</th>
+      <th scope="col">image</th>
+       <th scope="col">Action</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {{#each result}}
+    <tr>
+      <th scope="row">{{this.Product_name}}</th>
+      {{!-- <td>{{this.Product_id}}</td> --}}
+      <td>{{this.Description}}</td>
+      <td>{{this.Price}}</td>
+      <td> <img style="height: 50px; width:50px" src="/images/product/{{this.Image}}" alt=""> </td>
+     <td> <a href="/seller/delete/{{this.id}}" class="btn btn-outline-dark">Delete</a></td>
+    
+    </tr>
+   {{/each}}
+   
+  </tbody>
+</table>
+ <div class="row">
+   {{!-- <a href="/addProduct" class="btn btn-success ">Add Product</a> --}}
+  </div>
+</div>
+</div>
+
+<div class="container3">
+    <form action="/seller/addProduct" method="post" enctype="multipart/form-data"> 
+
+    <legend>Add Product</legend>
+    <div class="mb-3">
+      <label for="disabledTextInput" class="form-label"></label>
+      <input type="text" name="name" id="disabledTextInput" class="form-control" placeholder="Product Name">
+    </div>
+     <div class="mb-3">
+      <label for="disabledTextInput" class="form-label"></label>
+      <input type="text" name="description" id="disabledTextInput" class="form-control" placeholder="Discription">
+    </div>
+     <div class="mb-3">
+      <label for="disabledTextInput" class="form-label"></label>
+      <input type="text" name="price" id="disabledTextInput" class="form-control" placeholder="Price">
+    </div> 
+    <div class="mb-3">
+      <label for="disabledSelect" class="form-label">Image</label>
+      <input type="file"  name="uploaded_image" accept="">
+    </div>
+    <div class="mb-3">
+      
+    </div>
+    <button type="submit" class="btn btn-primary">AddProduct</button>
+  {{!-- <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+ Add Offer
+</button> --}}
+</form>
+</div>
+</div>
+
+
+<div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <form action="/seller/addoffer" method="post" enctype="multipart/form-data"> 
+
+    <legend>Add Offers To Banner</legend> 
+    <div class="mb-3">
+      <label for="disabledSelect" class="form-label">Image</label>
+      <input type="file"  name="uploaded_image" accept="">
+    </div>
+    <div class="mb-3">
+      
+    </div>
+    <button type="submit" class="btn btn-primary">AddProduct</button>
+ 
+</form>
+      </div>
+      
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+
+{{> userHeader}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Seller Name</th>
+      <th scope="col">Seller Mail</th>
+      <th scope="col">Place</th>
+      <th scope="col">action</th>
+    </tr>
+  </thead>
+  <tbody>
+      {{#each jobs}}
+    <tr>
+      
+      <td>{{this.userName}}</td>
+      <td>{{this.email}}</td>
+      <td>{{this.place}}</td>
+      <td> <a href="/users/applayJobs/{{this.email}}" class="btn btn-primary"> Applay for job</a> </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>
