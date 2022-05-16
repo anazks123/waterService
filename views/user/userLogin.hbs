@@ -1,95 +1,126 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+<style>
+  body {
+    background: rgb(215, 210, 236);
+  }
+
+  .navbar-light .navbar-brand {
+    color: rgba(95, 179, 74, 0.9);
+    font-size: 25px;
+    font-weight: 700
+  }
+
+  .navbar-light .navbar-brand:hover {
+    color: rgba(43, 45, 156, 0.9);
+  }
+
+  .navbar-light .navbar-nav .nav-link {
+    color: rgb(125, 104, 218);
+    font-size: 18px;
+    font-weight: 600
+  }
+
+  .navbar-light .navbar-nav .nav-link:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(90 59 229);
+  }
+
+  #table-sellers tr,
+  td {
+    color: rgb(0, 0, 0);
+    background-color: rgb(125, 104, 218);
+  }
+
+  #table-sellers th {
+    color: rgb(240, 241, 255);
+  }
+</style>
+<nav class="navbar navbar-expand-lg navbar-light"
+  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;background:rgb(129, 125, 125)">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/users/" style="color: white;"  style="margin-left: 100px;" >Seedkart <sub style="color: gold;">ExplorePlus</sub> </a>
-    {{!-- <img style="width: 100px;height:20px" src="https://agenciescdn.notifyvisitors.com/agencies/wp-content/uploads/2021/07/seedcart-1024x223.png" alt=""> --}}
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="/users/" style="color: white;" style="margin-left: 100px;">Seedkart <sub
+        style="color: gold;">ExplorePlus</sub> </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        
-      <div  class="row g-3 align-items-center">
-  <div class="col-auto">
-     </div>
 
-      <div class="col-auto"  >
-    <input  type="text" style="width: 500px;" id="inputPassword6" placeholder="Search for products,brands and more"  class="form-control" aria-describedby="passwordHelpInline">
-    </div>
-  
-  <div class="col-auto">
-    <span id="passwordHelpInline" class="form-text">
-     
-    </span>
-   
-      {{!-- <div class="btn-group"></div>
-    <button   style="margin-left: 30px;" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-      {{user.user_name}}
-        </button>  --}}
-      
-    <div class="dropdown">
-      {{#if user}}
-  <button class="dropbtn">{{user.user_name}}</button>
-  <div class="dropdown-content">
-  <a href="/users/update/{{user.email}}">Account settings</a>
-  <a href="/users/logout">Logout</a>
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+          </div>
 
-    {{else}}
-        <button   style="margin-left: 30px;" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          more
-        </button>
-            <a href="/users/userLogin" style="width: 150px;" class="btn btn-secondary" >Login</a>
-  {{/if}}
-        
-  </div>
-  </div>
-</div>
-    
-    </div>
-    <div style="margin-left: 60px;">
-       {{#if user}}
-    
-          {{!-- <a class="nav-link" href="#" style="color: white;">Cart<i class="fa fa-shopping-cart" style="font-size:30px;color:rgb(255, 254, 254)"></i></a> --}}
+          <div class="col-auto">
+            <input type="text" style="width: 500px;" id="inputPassword6"
+              placeholder="Search for products,brands and more" class="form-control"
+              aria-describedby="passwordHelpInline">
+          </div>
+
+          <div class="col-auto">
+            <span id="passwordHelpInline" class="form-text">
+            </span>
+            <div class="dropdown">
+              {{#if user}}
+              <button class="dropbtn">{{user.user_name}}</button>
+              <div class="dropdown-content">
+                <a href="/users/update/{{user.email}}">Account settings</a>
+                <a href="/users/logout">Logout</a>
+                {{else}}
+                <a href="/users/userReg" style="width: 150px;" class="btn btn-outline-light">Signup</a>
+                {{/if}}
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div style="margin-left: 60px;">
+          {{#if user}}
+
+          {{!-- <a class="nav-link" href="#" style="color: white;">Cart<i class="fa fa-shopping-cart"
+              style="font-size:30px;color:rgb(255, 254, 254)"></i></a> --}}
           <button type="button" class="btn btn-secondary position-relative">
-            <a class="nav-link" href="/users/cart/{{user.email}}" style="color: white;">Cart<i class="fa fa-shopping-cart" style="font-size:30px;color:rgb(255, 254, 254)"></i></a>
+            <a class="nav-link" href="/users/cart/{{user.email}}" style="color: white;">Cart<i
+                class="fa fa-shopping-cart" style="font-size:30px;color:rgb(255, 254, 254)"></i></a>
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
               {{CartTotal}}
-              </span>
-              </span>
-              </button>
-              <a href="/users/myorders" class="btn btn-secondry" style="color: aliceblue;">My Orders</a>
-                          <a href="/users/jobs" style="text-decoration: none;" class="btn btn-secondary"  >Jobs</a>
+            </span>
+            </span>
+          </button>
+          <a href="/users/myorders" class="btn btn-secondry" style="color: aliceblue;">My Orders</a>
+          <a href="/users/jobs" style="text-decoration: none;" class="btn btn-secondary">Jobs</a>
 
-        {{/if}}
+          {{/if}}
+        </div>
     </div>
-  </div>
-  
-
 </nav>
 
-      <div class="container">
-        <h1>{{#if msg}}</h1>
-        <h1 style="text-align: center;font-size:20px;color:red"> <b>{{msg}}</b></h1>
-        {{/if}}
-      </div>
-<div class="container" style="width: 500px;border:2px solid black;margin-top:50px">
-  <div class="container" style="margin-top: 10px;">
+<div class="container">
+  <h1>{{#if msg}}</h1>
+  <h1 style="text-align: center;font-size:20px;color:red"> <b>{{msg}}</b></h1>
+  {{/if}}
+</div>
+<div class="container" style="width: 500px;margin-top:50px">
+  <div class="box p-5" style="margin-top: 10px;margin-left:0;">
     <div class="row">
-        <h2 style="text-align:center;">Login</h2>
+      <h2 style="text-align:center;">Login</h2>
     </div>
     <form method="post" action="/users/Ulogin">
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" name="email" class="form-control" id="exampleInputEmail1" name="mail" aria-describedby="emailHelp">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
-  </div>
- 
-  <button type="submit" class="btn btn-primary">LogIn</button> <a href="/users/userReg">Don't Have Account??Register here</a>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" name="email" class="form-control" id="exampleInputEmail1" name="mail"
+          aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+      </div>
 
-</form>
-</div>
+      <button type="submit" class="btn btn-primary">LogIn</button> <a href="/users/userReg">Don't Have Account??Register
+        here</a>
+
+    </form>
+  </div>
 
 </div>
