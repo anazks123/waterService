@@ -16,17 +16,23 @@
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
-<body
-  style="background-image: url(https://images.pexels.com/photos/2853937/pexels-photo-2853937.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);background-size: cover;background-repeat:no-repeat">
-  <div style="height:100vh;background:rgba(0,0,0,0.3);margin:0">
-    {{#if homepage}}
+<body>
+  <style>
+    body {
+      background-image: url('https://images.pexels.com/photos/2853937/pexels-photo-2853937.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  </style>
+  {{#if homepage}}
+  <div style="min-height:100vh;background:rgba(0,0,0,0.3);margin:0">
     {{{body}}}
-    {{else}}
-    {{> userHeader}}
-    {{> banner}}
-    {{{body}}}
-    {{/if}}
   </div>
+  {{else}}
+  {{> userHeader}}
+  {{> banner}}
+  {{{body}}}
+  {{/if}}
 </body>
 
 </html>
