@@ -228,8 +228,6 @@ router.get("/addtoCart/:Pid", (req, res) => {
               res.redirect('/users/')
             }
           })
-
-
         } else {
           console.log("cart not added")
           con.query(sql3, [email, Pid], (err, result) => {
@@ -239,8 +237,6 @@ router.get("/addtoCart/:Pid", (req, res) => {
               res.redirect('/users/')
             }
           })
-
-
         }
       }
     })

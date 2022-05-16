@@ -1,54 +1,81 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  .navbar-light .navbar-brand {
+    color: rgba(95, 179, 74, 0.9);
+    font-size: 25px;
+    font-weight: 700
+  }
+
+  .navbar-light .navbar-brand:hover {
+    color: rgba(43, 45, 156, 0.9);
+  }
+
+  .navbar-light .navbar-nav .nav-link {
+    color: rgb(125, 104, 218);
+    font-size: 18px;
+    font-weight: 600
+  }
+
+  .navbar-light .navbar-nav .nav-link:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(90 59 229);
+  }
+
+  #table-sellers tr,
+  td {
+    color: rgb(0, 0, 0);
+    background-color: rgb(125, 104, 218);
+  }
+
+  #table-sellers th {
+    color: rgb(240, 241, 255);
+  }
+
+  .text-primary {
+    font-size: 18px;
+    transition: all .5s ease;
+  }
+
+  .text-primary:hover {
+    transform: scale(1.1);
+  }
+</style>
 <nav class="navbar navbar-expand-lg navbar-light"
-  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;background:rgb(129, 125, 125)">
+  style="height:10vh;box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;background:rgb(255, 255, 255)">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/users/" style="color: white;" style="margin-left: 100px;">Seedkart <sub
-        style="color: gold;">ExplorePlus</sub> </a>
-    <img style="width: 100px;height:20px">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <a class="navbar-brand" href="/users/" style="color: rgb(95, 79, 238);" style="margin-left: 100px;">Seedkart <span
+        style="color: gold;font-size:18px">ExplorePlus</span> </a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <div class="row g-3 align-items-center">
-          <div class="col-auto">
-          </div>
-          <div class="col-auto">
-            {{!-- <input type="text" style="width: 500px;" id="inputPassword6" placeholder="" class="form-control"
-              aria-describedby="passwordHelpInline"> --}}
-          </div>
-          <div class="col-auto">
-            <span id="passwordHelpInline" class="form-text">
-            </span>
-            <div class="dropdown">
-              {{#if user}}
-              <button class="dropbtn">{{user.user_name}}</button>
-              <div class="dropdown-content">
-                <a href="/users/update/{{user.email}}">Update Profile </a>
-                <a href="/users/logout">Logout</a>
-                {{else}}
-                <a href="/users/userLogin" style="width: 150px;" class="btn btn-success">Login</a>
-                {{/if}}
-              </div>
+    </div>
+    <div class="d-flex">
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <button type="button" class="btn btn-light me-3 rounded position-relative text-primary">
+            <a class="text-primary" href="/users/cart/{{user.email}}" style="text-decoration:none">Cart<i
+                class="fa fa-shopping-cart" style="font-size:20px;color:rgb(255, 254, 254)"></i>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                {{CartTotal}}
+              </span></a>
+          </button>
+          <a href="/users/myorders" class="btn btn-light me-3 rounded text-primary " style="color: aliceblue;">My
+            Orders</a>
+          {{#if user}}
+          <a class="text-primary" href="/users/update/{{user.email}}" style="text-decoration: none;">Update Profile </a>
+
+          {{/if}}
+          <div class="dropdown">
+            {{#if user}}
+            <button class="btn btn-light me-3 rounded text-primary font-weight-600">{{user.user_name}}</button>
+            <div class="dropdown-content">
+              <a class="bg-danger text-light" href="/users/logout" style="text-decoration: none;">Logout</a>
+              {{else}}
+              <a href="/users/userLogin" style="width: 150px;" class="btn btn-light me-3 rounded">Login</a>
+              {{/if}}
             </div>
           </div>
 
         </div>
-        <div style="margin-left: 20px;">
-          {{#if user}}
-          <button type="button" class="btn btn-success position-relative">
-            <a class="nav-link" href="/users/cart/{{user.email}}" style="color: white;">Cart<i
-                class="fa fa-shopping-cart" style="font-size:30px;color:rgb(255, 254, 254)"></i></a>
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-              {{CartTotal}}
-            </span>
-            </span>
-          </button>
-          <a href="/users/myorders" class="btn btn-success" style="color: aliceblue;">My Orders</a>
-
-          {{/if}}
-        </div>
+      </div>
     </div>
 
 
